@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+    .table{
+    background-color:pink;
+    }
+
+    .table1{
+    margin:30px;
+    width:95vw;
+    height:170px;
+    overflow:auto;
+    }
+
+    td{font-size:20px;}
+
+  .card-body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:60%;
+      background:none;
+      position:relative;
+      left:20%;
+  }
+  .output{
+      display:flex;
+      flex-direction:column;
+      align-items;center;
+      justify-content:center;
+  }
+  .output h1{
+      text-decoration:underline;
+      margin-bottom:20px;
+  }
+
+  h2 span{
+      font-weight:800;
+  }
+  .table_head{
+      background:black;
+      text-align:center;
+  }
+  .table_head span{
+      font-size:25px;
+  }
+  .table_head a{
+      background:blue;
+      text-decoration:none;
+      font-size:15px;
+      padding:5px 10px;
+      position:relative;
+      left:25%;
+      color:white;
+  }
+</style>
+
+<div style="width: 60%; position: relative; left: 20%; margin-top: 1%">
+  <table class="table table-light table-center">
+    {% if cols %}
+    <div class="table_head">
+      <span style="text-align: center; color: white; padding: 10px"
+        >{{ title }}</span
+      >
+      <a href="/clear_data">Clear All</a>
+    </div>
+    <tr>
+      {% for col in cols %}
+      <th>{{ col }}</th>
+      {% endfor %}
+    </tr>
+    <tbody>
+      {% for value in values %}
+      <tr>
+        {% for i in value %}
+        <td>{{ i }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+
+    {% endif %}
+  </table>
+</div>
+
+{% endblock %}
